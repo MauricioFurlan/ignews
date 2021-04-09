@@ -1,0 +1,55 @@
+.headerContainer {
+    height: 5rem;
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.headerContent {
+    max-width: 1120px;
+    height: 5rem;
+    margin: 0 auto; 
+    padding: 0 2rem; // espacamento de 2 rem nas laterias caso a tela seja menor que 1120px
+
+    display: flex;
+    align-items: center;
+
+    nav { // nav ocupa toda a altura para poder fazer o estilo sublinhado
+        margin-left: 5rem;
+        height: 5rem;
+
+        a {
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            height: 5rem;
+            line-height: 5rem;
+            color: var(--gray-300);
+
+            transition: color 2s;
+
+            & + a { // todo link excluindo o primeiro
+                margin-left: 2rem;
+            }
+
+            &:hover {
+                color: var(--white);
+            }
+            &.active {
+                color: var(--width);
+                font-weight: bold;
+            }
+            &.active::after { // ::after coloca alguma coisa depois do conteudo
+                content: ''; // importante ter o contente vazio mesmo que nao tenha conteudo, padrao
+                height: 3px;
+                border-radius: 3px 3px 0 0;
+                width: 100%;
+                position: absolute;
+                bottom: 1px;
+                left: 0;
+                background: var(--yellow-500);
+            }
+        }
+    }
+    button {
+        margin-left: auto;
+    }
+}
